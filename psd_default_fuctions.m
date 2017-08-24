@@ -1,0 +1,11 @@
+close all;clear all;clc;
+fs = 2000;
+f1 = 100;
+f2 = 500;
+n = 0:1/fs:0.1;
+x = sin(2*n*pi*f1) + sin(2*n*pi*f2);
+y = fftshift(fft(x));
+l = length(y);
+psd = (y .*conj(y))/l;
+fx = (fs/2)*linspace(-1,1,(fs/10)+1);
+stem(fx,psd);
