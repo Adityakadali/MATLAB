@@ -14,13 +14,9 @@ w= 0:0.1:pi
 mag= 20*log(abs(h));
 ph= angle(h);
 grid on;
-subplot(2,1,1); 
+
 plot((w/pi)*F/2, mag);
 grid on;
 title('butterworth high pass filter 14-487');
 xlabel('frequency(Hz)'); ylabel('gain(dB)');
-subplot(2,1,2); 
-plot((w/pi)*F/2, ph);
-grid on;
-title('butterworth high pass filter 14-489');
-xlabel('frequency(Hz)'); ylabel('phase(radians)');
+
