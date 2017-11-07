@@ -30,7 +30,7 @@ z = xk1.*xk2;
 zn = [zeros(1,N)];
 for n = 0:N-1
     for k = 0:N-1
-        zn(n+1) = zn(n+1)+z(k+1)*exp((j*2*p1*n*k)/N);
+        zn(n+1) = zn(n+1)+z(k+1)*exp((j*2*pi*n*k)/N);
     end
 end
 zn = zn./N
