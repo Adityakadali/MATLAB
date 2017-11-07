@@ -1,0 +1,38 @@
+clc;
+clear all;
+close all;
+WC=input('enter cut-off frequency');
+N=input('enter order(odd number)');
+e=0.0001;
+s=(N-1)/2;
+n=0:N-1;
+hd=sin(WC*(n-s+e))./(pi*(n-s+e));
+wr=rectwin(N);
+whm=hamming(N);
+whn=hann(N);
+wb=blackman(N);
+wt=bartlett(N);
+hn1=hd.*wr';
+hn2=hd.*whn';
+hn3=hd.*whm';
+hn4=hd.*wb';
+hn5=hd.*wt';
+w=0:0.08:pi;
+h1=freqz(hn1,1,w);
+h2=freqz(hn2,1,w);
+h3=freqz(hn3,1,w);
+h4=freqz(hn4,1,w);
+h5=freqz(hn5,1,w);
+plot(w,abs(h1),'b.-');
+title('FIR LPF 14481a0479');
+xlabel('--------->W');
+ylabel('magnitude(H)');
+hold on;
+plot(w,abs(h2),'go:');
+plot(w,abs(h3));
+plot(w,abs(h4),'rx-.');
+plot(w,abs(h5),'k+--');
+hold off;
+legend('Rectangular','Hamming','Hanning','Blackman','Triangular');
+
+
